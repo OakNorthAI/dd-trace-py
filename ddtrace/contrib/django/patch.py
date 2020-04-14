@@ -128,10 +128,6 @@ def _set_request_tags(span, request):
         if uid:
             span.set_tag("django.user.id", uid)
 
-        username = getattr(user, "username", None)
-        if username:
-            span.set_tag("django.user.name", username)
-
 
 @with_traced_module
 def traced_cache(django, pin, func, instance, args, kwargs):
